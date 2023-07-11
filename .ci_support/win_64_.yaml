@@ -1,0 +1,18 @@
+c_compiler:
+- vs2019
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2019
+expat:
+- '2'
+fontconfig:
+- '2'
+freetype:
+- '2'
+krb5:
+- '1.19'
+target_platform:
+- win-64
