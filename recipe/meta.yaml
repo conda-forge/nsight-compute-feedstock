@@ -76,10 +76,11 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/bin/ncu                      # [linux]
-    - if not exist %LIBRARY_PREFIX%\nsight-compute exit 1  # [win]
+    - test -f $PREFIX/bin/ncu                                                  # [linux]
+    - test -f $PREFIX/bin/ncu-ui                                               # [linux64 or aarch64]
+    - if not exist %LIBRARY_PREFIX%\nsight-compute exit 1                      # [win]
     - if exist %LIBRARY_PREFIX%\nsight-compute\{{ version_split }}\lib exit 1  # [win]
-    - if not exist %PREFIX%\Scripts\ncu.bat exit 1  # [win]
+    - if not exist %PREFIX%\Scripts\ncu.bat exit 1                             # [win]
     - ncu --version
 
 about:

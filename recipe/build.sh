@@ -11,5 +11,5 @@ nsightLib32="nsight-compute/${nsightVersion}/target/linux-desktop-glibc_2_11_3-x
 
 mkdir -p $PREFIX/bin
 cp -rv bin/ncu $PREFIX/bin
-cp -rv bin/ncu-ui $PREFIX/bin
+[[ ${target_platform} != "linux-ppc64le" ]] && cp -rv bin/ncu-ui $PREFIX/bin
 cp -rv nsight-compute/$nsightVersion $PREFIX/nsight-compute-$nsightVersion
