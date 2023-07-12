@@ -13,6 +13,6 @@ fontconfig:
 freetype:
 - '2'
 krb5:
-- '1.19'
+- '1.21'
 target_platform:
 - win-64
