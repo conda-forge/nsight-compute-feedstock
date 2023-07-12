@@ -82,6 +82,7 @@ test:
     - if exist %LIBRARY_PREFIX%\nsight-compute\{{ version_split }}\lib exit 1  # [win]
     - if not exist %PREFIX%\Scripts\ncu.bat exit 1                             # [win]
     - ncu --version
+    - ncu-ui --help-all                                                        # [linux64 or aarch64]
 
 about:
   home: https://developer.nvidia.com/nsight-compute
