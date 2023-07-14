@@ -78,17 +78,6 @@ requirements:
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
 
 test:
-  requires:
-    - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
-    - qt-main
-    - make                               # [unix]
-    - xorg-libxxf86vm                    # [linux]
   commands:
     - test -f $PREFIX/bin/ncu                                                  # [linux]
     - test -f $PREFIX/bin/ncu-ui                                               # [linux64 or aarch64]
