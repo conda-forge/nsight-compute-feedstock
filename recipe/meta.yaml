@@ -41,6 +41,7 @@ requirements:
     - expat
     - fontconfig
     - freetype
+    - krb5
     - libglib
     - libxcb
     - libxkbcommon         # [linux]
