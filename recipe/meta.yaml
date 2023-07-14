@@ -65,7 +65,6 @@ requirements:
     - xorg-libxrandr       # [linux]
     - xorg-libxrender      # [linux]
     - xorg-libxtst         # [linux]
-    - xorg-libxxf86vm      # [linux]
   run:
     - {{ pin_compatible("cuda-version", max_pin="x.x") }}
     - {{ pin_compatible("xorg-libxcomposite", max_pin="x.x") }}  # [linux]
