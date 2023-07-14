@@ -32,6 +32,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ cdt('libglvnd') }}  # [linux]
     - {{ cdt('libglvnd-opengl') }}  # [linux]
+    - qt-main
     - sysroot_{{ target_platform }} 2.17  # [linux]
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
   host:
@@ -41,7 +42,6 @@ requirements:
     - expat
     - fontconfig
     - freetype
-    - krb5
     - libglib
     - libxcb
     - libxkbcommon         # [linux]
@@ -65,6 +65,7 @@ requirements:
     - xorg-libxrandr       # [linux]
     - xorg-libxrender      # [linux]
     - xorg-libxtst         # [linux]
+    - xorg-libxxf86vm      # [linux]
   run:
     - {{ pin_compatible("cuda-version", max_pin="x.x") }}
     - {{ pin_compatible("xorg-libxcomposite", max_pin="x.x") }}  # [linux]
@@ -77,6 +78,17 @@ requirements:
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
 
 test:
+  requires:
+    - {{ compiler('cxx') }}
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-libegl-devel') }}     # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libdrm-devel') }}          # [linux]
+    - {{ cdt('libglvnd-glx') }}          # [linux]
+    - {{ cdt('libglvnd-egl') }}          # [linux]
+    - qt-main
+    - make                               # [unix]
+    - xorg-libxxf86vm                    # [linux]
   commands:
     - test -f $PREFIX/bin/ncu                                                  # [linux]
     - test -f $PREFIX/bin/ncu-ui                                               # [linux64 or aarch64]
@@ -84,7 +96,7 @@ test:
     - if exist %LIBRARY_PREFIX%\nsight-compute\{{ version_split }}\lib exit 1  # [win]
     - if not exist %PREFIX%\Scripts\ncu.bat exit 1                             # [win]
     - ncu --version
-    - ncu-ui --help-all                                                        # [linux64 or aarch64]
+    - DISPLAY=localhost:1.0 xvfb-run -a bash -c 'ncu-ui --help-all'            # [linux64 or aarch64]
 
 about:
   home: https://developer.nvidia.com/nsight-compute

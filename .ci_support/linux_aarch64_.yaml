@@ -30,12 +30,12 @@ fontconfig:
 - '2'
 freetype:
 - '2'
-krb5:
-- '1.19'
 nspr:
 - '4'
 nss:
 - '3'
+qt_main:
+- '5.15'
 target_platform:
 - linux-aarch64
 zip_keys:
