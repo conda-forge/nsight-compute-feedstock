@@ -14,7 +14,5 @@ freetype:
 - '2'
 krb5:
 - '1.19'
-qt_main:
-- '5.15'
 target_platform:
 - win-64
