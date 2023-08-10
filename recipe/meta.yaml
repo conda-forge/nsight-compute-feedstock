@@ -17,7 +17,7 @@ source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/nsight_compute/{{ platform }}/nsight_compute-{{ platform }}-{{ version }}-archive.{{ extension }}
   sha256: 1ce06d1f7fb5b9124570db1e12a7caf0caa61d60f757c8d0bcb233f818cd3e0c  # [linux64]
   sha256: e7eb2794136cec15cbfcb2d69e230e1b28164091eee886cb17182000e4ffff8b  # [ppc64le]
-  sha256: bd1b3770c183bab6ef27e018d26db480a7d52495df1bb517b785b1732b083782  # [aarch64]
+  sha256: 95f817d0526e60a16dc918e9240bc2b4155216833b7beecde5308687d8aaaead  # [aarch64]
   sha256: e72b239b8be0801f6377204949fb4696bf3cc8b86327f428f4bb8cbd55f7f110  # [win]
 
 build:
