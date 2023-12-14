@@ -1,7 +1,7 @@
 {% set name = "nsight-compute" %}
-{% set version = "2022.4.0.15" %}
+{% set version = "2023.1.1.4" %}
 {% set version_split = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2] %}
-{% set cuda_version = "12.0" %}
+{% set cuda_version = "12.1" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
 {% set platform = "linux-sbsa" %}  # [aarch64]
@@ -15,13 +15,13 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/nsight_compute/{{ platform }}/nsight_compute-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: f084e05eb4d2ba32aceb25e1dcfe03f2a50127630973722b65219cf9e986a139  # [linux64]
-  sha256: 20e58ce79681bc8fd39394cfb8f8316c177fe4175af3ae95c025996f45904732  # [ppc64le]
-  sha256: 7d0b3d4d01ce36657fa739496c7b0a9c627f5fa42021c1696ddd15e119bb05a4  # [aarch64]
-  sha256: 958da9986841c49cb5a2885d1e14e4c673ba94e4b404ef9389d083b7a0095d84  # [win]
+  sha256: 0b19f1fe19e549b217aae3834fea36b0dd56273bf2d6abe682c30916dec83004  # [linux64]
+  sha256: 2dc7ea5c7719550ced4da69e892aae3e97bf03cfdf61a7b70bdf1b4ea6dce227  # [ppc64le]
+  sha256: 4c93ca3a701a0563e33f1668d85d08a173f5419f2c5170cece2767f4ff322a1b  # [aarch64]
+  sha256: 7873643159e97aba86922a6cd26ca9f7451edf6e1e13dbaf5c22e9a16290587b  # [win]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [osx]
   missing_dso_whitelist:
   - '*'
@@ -103,4 +103,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - adibbley
+    - conda-forge/cuda
