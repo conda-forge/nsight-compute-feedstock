@@ -1,5 +1,5 @@
 alsa_lib:
-- 1.2.8
+- 1.2.10
 c_compiler:
 - gcc
 c_compiler_version:
@@ -25,7 +25,7 @@ fontconfig:
 freetype:
 - '2'
 krb5:
-- '1.19'
+- '1.21'
 nspr:
 - '4'
 nss:
