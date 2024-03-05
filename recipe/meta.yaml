@@ -51,6 +51,7 @@ requirements:
     - nss                  # [linux]
     - qt-main              # [linux64 or aarch64]
     - wayland              # [linux]
+    - xcb-util-cursor      # [linux]
     - xcb-util-image       # [linux]
     - xcb-util-keysyms     # [linux]
     - xcb-util-keysyms     # [linux]
