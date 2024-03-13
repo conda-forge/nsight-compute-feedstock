@@ -21,7 +21,7 @@ source:
   sha256: 3e9688f35c9d7c77a3e075a045c31109a81d64fb91b819e9cb7e91e77491c210  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx]
   missing_dso_whitelist:
   - '*'
@@ -49,7 +49,6 @@ requirements:
     - libzlib
     - nspr                 # [linux]
     - nss                  # [linux]
-    # - qt-main              # [linux64 or aarch64]
     - wayland              # [linux]
     - xcb-util-cursor      # [linux]
     - xcb-util-image       # [linux]
