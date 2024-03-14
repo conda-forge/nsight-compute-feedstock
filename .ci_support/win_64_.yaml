@@ -14,5 +14,7 @@ freetype:
 - '2'
 krb5:
 - '1.21'
+libxcb:
+- '1.15'
 target_platform:
 - win-64
