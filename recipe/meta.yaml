@@ -21,7 +21,7 @@ source:
   sha256: a8e497fd4a9dbf12e328e961984f5fad445045efc2568b0cb594ff51da977ba0  # [win]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [osx]
   missing_dso_whitelist:
   - '*'
@@ -32,7 +32,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ cdt('libglvnd') }}  # [linux]
     - {{ cdt('libglvnd-opengl') }}  # [linux]
-    - sysroot_{{ target_platform }} 2.17  # [linux]
+    - {{ stdlib("c") }}
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
   host:
     - cuda-version {{ cuda_version }}
