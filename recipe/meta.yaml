@@ -87,7 +87,9 @@ test:
     - ncu --version
     # ncu-ui test can be enabled for aarch64 once GLIBC 2.28 is made available
     # https://github.com/conda-forge/conda-forge.github.io/issues/1941
-    - DISPLAY=localhost:1.0 xvfb-run -a bash -c 'ncu-ui --help-all'            # [linux64]
+    # ncu-ui test is currently failing on linux64 as well due to missing x11 libs
+    # https://github.com/conda-forge/nsight-compute-feedstock/issues/26
+    # - DISPLAY=localhost:1.0 xvfb-run -a bash -c 'ncu-ui --help-all'            # [linux64]
 
 about:
   home: https://developer.nvidia.com/nsight-compute
