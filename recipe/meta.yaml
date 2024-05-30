@@ -1,7 +1,7 @@
 {% set name = "nsight-compute" %}
-{% set version = "2024.1.1.4" %}
+{% set version = "2024.2.0.16" %}
 {% set version_split = version.split(".")[0]+"."+version.split(".")[1]+"."+version.split(".")[2] %}
-{% set cuda_version = "12.4" %}
+{% set cuda_version = "12.5" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
 {% set platform = "linux-sbsa" %}  # [aarch64]
@@ -15,14 +15,14 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/nsight_compute/{{ platform }}/nsight_compute-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: b6aee577e61db6823a2fe44fcce4902962c7ea90fbb29800ffcceb3df7ea8d47  # [linux64]
-  sha256: 267c884f074163e5ffde8fe2a798f795b5d375e0fb1df4439e143a992e7e5f6d  # [ppc64le]
-  sha256: 5e3b489eaffe329cc3b204a31e9b9c9bd231203ddfd89f57e04fc59c3119527e  # [aarch64]
-  sha256: a8e497fd4a9dbf12e328e961984f5fad445045efc2568b0cb594ff51da977ba0  # [win]
+  sha256: 336be52584adccdd177f2d6699e7b575e53b169f040e366d36ce409b39b19316  # [linux64]
+  sha256: 6b5c386a35b25b58184db65ff19e69cbd020e805f1077414e7bc5110ee83321b  # [aarch64]
+  sha256: 9f23fed6f9f2a841034c452f82c5b23ccf0e0dfbb235a0fc6e70303ee049fde7  # [win]
 
 build:
-  number: 3
-  skip: true  # [osx]
+  number: 0
+  binary_relocation: false
+  skip: true  # [osx or ppc64le]
   missing_dso_whitelist:
   - '*'
 
@@ -84,10 +84,12 @@ test:
     - if not exist %LIBRARY_PREFIX%\nsight-compute exit 1                      # [win]
     - if exist %LIBRARY_PREFIX%\nsight-compute\{{ version_split }}\lib exit 1  # [win]
     - if not exist %PREFIX%\Scripts\ncu.bat exit 1                             # [win]
-    - ncu --version
+    - ncu --version                                                            # [build_platform == target_platform]
     # ncu-ui test can be enabled for aarch64 once GLIBC 2.28 is made available
     # https://github.com/conda-forge/conda-forge.github.io/issues/1941
-    - DISPLAY=localhost:1.0 xvfb-run -a bash -c 'ncu-ui --help-all'            # [linux64]
+    # ncu-ui test is currently failing on linux64 as well due to missing x11 libs
+    # https://github.com/conda-forge/nsight-compute-feedstock/issues/26
+    # - DISPLAY=localhost:1.0 xvfb-run -a bash -c 'ncu-ui --help-all'            # [linux64]
 
 about:
   home: https://developer.nvidia.com/nsight-compute
