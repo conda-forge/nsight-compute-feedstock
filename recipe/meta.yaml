@@ -84,7 +84,7 @@ test:
     - if not exist %LIBRARY_PREFIX%\nsight-compute exit 1                      # [win]
     - if exist %LIBRARY_PREFIX%\nsight-compute\{{ version_split }}\lib exit 1  # [win]
     - if not exist %PREFIX%\Scripts\ncu.bat exit 1                             # [win]
-    - ncu --version
+    - ncu --version                                                            # [build_platform == target_platform]
     # ncu-ui test can be enabled for aarch64 once GLIBC 2.28 is made available
     # https://github.com/conda-forge/conda-forge.github.io/issues/1941
     # ncu-ui test is currently failing on linux64 as well due to missing x11 libs
