@@ -31,7 +31,7 @@ freetype:
 krb5:
 - '1.21'
 libxcb:
-- '1.15'
+- '1.16'
 nspr:
 - '4'
 nss:
