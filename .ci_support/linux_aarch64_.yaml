@@ -37,13 +37,15 @@ freetype:
 krb5:
 - '1.21'
 libxcb:
-- '1.16'
+- '1'
 nspr:
 - '4'
 nss:
 - '3'
 target_platform:
 - linux-aarch64
+xz:
+- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
