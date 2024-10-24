@@ -30,8 +30,6 @@ requirements:
   build:
     - {{ compiler("c") }}
     - {{ compiler("cxx") }}
-    - {{ cdt('libglvnd') }}  # [linux]
-    - {{ cdt('libglvnd-opengl') }}  # [linux]
     - {{ stdlib("c") }}
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
   host:
@@ -41,6 +39,8 @@ requirements:
     - expat
     - fontconfig
     - freetype
+    - libglvnd-devel       # [linux]
+    - libopengl-devel      # [linux]
     - krb5
     - libglib
     - libxcb
