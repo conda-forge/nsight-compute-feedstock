@@ -21,4 +21,4 @@ mkdir -p $PREFIX/bin
 ln -s $PREFIX/nsight-compute-$nsightVersion/ncu $PREFIX/bin/
 ln -s $PREFIX/nsight-compute-$nsightVersion/ncu-ui $PREFIX/bin/
 
-check-glibc "$PREFIX"/lib*/*.so.* "$PREFIX"/bin/* "$PREFIX"/targets/*/lib*/*.so.* "$PREFIX"/targets/*/bin/*
+check-glibc "$PREFIX"/bin/* "$PREFIX"/targets/*/bin/* "$PREFIX"/nsight-compute-*/**/*.so
