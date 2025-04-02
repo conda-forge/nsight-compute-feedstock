@@ -20,3 +20,5 @@ mv -v $PREFIX/nsight-compute-$nsightVersion/linux-desktop* $PREFIX/nsight-comput
 mkdir -p $PREFIX/bin
 ln -s $PREFIX/nsight-compute-$nsightVersion/ncu $PREFIX/bin/
 ln -s $PREFIX/nsight-compute-$nsightVersion/ncu-ui $PREFIX/bin/
+
+check-glibc "$PREFIX"/bin/* "$PREFIX"/targets/*/bin/* "$PREFIX"/nsight-compute-*/**/*.so
