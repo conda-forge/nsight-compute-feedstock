@@ -4,7 +4,8 @@
 {% set cuda_version = "12.9" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
-{% set platform = "linux-sbsa" %}  # [aarch64]
+{% set platform = "linux-sbsa" %}  # [aarch64 and arm_variant_type=="sbsa"]
+{% set platform = "linux-aarch64" %}  # [aarch64 and arm_variant_type=="tegra"]
 {% set platform = "windows-x86_64" %}  # [win]
 {% set extension = "tar.xz" %}  # [not win]
 {% set extension = "zip" %}  # [win]
@@ -16,11 +17,12 @@ package:
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/nsight_compute/{{ platform }}/nsight_compute-{{ platform }}-{{ version }}-archive.{{ extension }}
   sha256: 02ab8867197aaf6a6ae3171293d70b6a9ddb20296be94ff4287741338cc2e1df  # [linux64]
-  sha256: 0e336a5139f76778b8ad70fdb49fb43817ec1bb3ee6e7425d59d99d8c455d976  # [aarch64]
+  sha256: 0e336a5139f76778b8ad70fdb49fb43817ec1bb3ee6e7425d59d99d8c455d976  # [aarch64 and arm_variant_type=="sbsa"]
+  sha256: 51c7762110c34728acd37878d4340f13612401fa622be0031b1a9e2ce112cfb2  # [aarch64 and arm_variant_type=="tegra"]
   sha256: e9d558654c98d83049969d133b98922b53ab8f4e3ba9e0a37bdb5e2ff300b7de  # [win]
 
 build:
-  number: 0
+  number: 1
   binary_relocation: false
   skip: true  # [osx or ppc64le]
   missing_dso_whitelist:
@@ -75,7 +77,6 @@ requirements:
     - {{ pin_compatible("xorg-libxrandr", max_pin="x.x") }}      # [linux]
     - {{ pin_compatible("xorg-libxtst", max_pin="x.x") }}        # [linux]
     - {{ pin_compatible("libxkbfile", max_pin="x.x") }}          # [linux]
-  run_constrained:
     - arm-variant * {{ arm_variant_type }}  # [aarch64]
 
 test:

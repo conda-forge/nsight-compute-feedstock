@@ -1,5 +1,7 @@
 alsa_lib:
 - '1.2'
+arm_variant_type:
+- sbsa
 c_compiler:
 - gcc
 c_compiler_version:
@@ -35,9 +37,11 @@ nspr:
 nss:
 - '3'
 target_platform:
-- linux-64
+- linux-aarch64
 xz:
 - '5'
 zip_keys:
+- - arm_variant_type
+  - c_stdlib_version
 - - c_compiler_version
   - cxx_compiler_version
