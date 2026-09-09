@@ -9,6 +9,10 @@
 {% set platform = "windows-arm64" %}  # [win and arm64]
 {% set extension = "tar.xz" %}  # [not win]
 {% set extension = "zip" %}  # [win]
+{% set sha256 = "0565d6d6c2e8425f17245be0a490dd2937443d3410c756667f1e554b6bcd79f6" %}  # [linux64]
+{% set sha256 = "4ac41519b45f29a4433440fab02f1ecaf0fdc9d807ed9ed995446d815172409c" %}  # [aarch64]
+{% set sha256 = "9467f08354c93868aed67c32acad6f5811af46b769f4c5117b3e9210a76f9837" %}  # [win64]
+{% set sha256 = "fa6fee9fe17b02adfbc6554d60be50638b427d2cd4edefaf0c97ed8c1b9f1f05" %}  # [win and arm64]
 
 package:
   name: {{ name|lower }}
@@ -16,10 +20,7 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/nsight_compute/{{ platform }}/nsight_compute-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: 0565d6d6c2e8425f17245be0a490dd2937443d3410c756667f1e554b6bcd79f6  # [linux64]
-  sha256: 4ac41519b45f29a4433440fab02f1ecaf0fdc9d807ed9ed995446d815172409c  # [aarch64]
-  sha256: 9467f08354c93868aed67c32acad6f5811af46b769f4c5117b3e9210a76f9837  # [win64]
-  sha256: fa6fee9fe17b02adfbc6554d60be50638b427d2cd4edefaf0c97ed8c1b9f1f05  # [win and arm64]
+  sha256: {{ sha256 }}
 
 build:
   number: 0
