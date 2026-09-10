@@ -41,7 +41,9 @@ requirements:
     - alsa-lib             # [linux]
     - dbus                 # [linux]
     - expat
-    - fontconfig
+    # conda-forge has no win-arm64 build of fontconfig (every other GUI dep here does),
+    # so the solve is unsatisfiable there. Everything else resolves, so drop just this.
+    - fontconfig          # [not (win and arm64)]
     - freetype
     - libglvnd-devel       # [linux]
     - libopengl-devel      # [linux]
