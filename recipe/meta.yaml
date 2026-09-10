@@ -41,15 +41,16 @@ requirements:
     - alsa-lib             # [linux]
     - dbus                 # [linux]
     - expat
-    # conda-forge has no win-arm64 build of fontconfig (every other GUI dep here does),
-    # so the solve is unsatisfiable there. Everything else resolves, so drop just this.
+    # conda-forge publishes no win-arm64 build of fontconfig or libxcb; every other
+    # non-linux dep here has one, so the solve is unsatisfiable on win-arm64 for just
+    # these two. libxcb is an X11 library and is inert on Windows regardless.
     - fontconfig          # [not (win and arm64)]
     - freetype
     - libglvnd-devel       # [linux]
     - libopengl-devel      # [linux]
     - krb5
     - libglib
-    - libxcb
+    - libxcb            # [not (win and arm64)]
     - libxkbcommon         # [linux]
     - libxkbfile           # [linux]
     - libzlib
