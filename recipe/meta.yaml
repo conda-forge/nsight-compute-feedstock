@@ -23,7 +23,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   binary_relocation: false
   skip: true  # [osx or ppc64le]
   missing_dso_whitelist:
