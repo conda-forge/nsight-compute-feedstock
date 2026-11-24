@@ -22,7 +22,7 @@ source:
   sha256: e9d558654c98d83049969d133b98922b53ab8f4e3ba9e0a37bdb5e2ff300b7de  # [win]
 
 build:
-  number: 1
+  number: 2
   binary_relocation: false
   skip: true  # [osx or ppc64le]
   missing_dso_whitelist:
@@ -44,7 +44,6 @@ requirements:
     - freetype
     - libglvnd-devel       # [linux]
     - libopengl-devel      # [linux]
-    - krb5
     - libglib
     - libxcb
     - libxkbcommon         # [linux]
