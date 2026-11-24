@@ -28,8 +28,6 @@ fontconfig:
 - '2'
 freetype:
 - '2'
-krb5:
-- '1.22'
 libxcb:
 - '1'
 nspr:
