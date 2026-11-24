@@ -14,7 +14,5 @@ fontconfig:
 - '2'
 freetype:
 - '2'
-krb5:
-- '1.22'
 target_platform:
 - win-64
